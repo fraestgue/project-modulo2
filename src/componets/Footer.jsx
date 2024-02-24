@@ -1,8 +1,14 @@
-import React from 'react'
+import { Link } from "react-router-dom"
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div>
+        <Link to={"/about"}>
+        Sobre Nosotros
+        </Link>
+        <hr />
+        <a href="">GitHub</a>
+    </div>
   )
 }
 
