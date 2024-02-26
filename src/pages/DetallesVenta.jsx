@@ -2,12 +2,21 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import JSON_URL from "../utils/json";
+import EditarVenta from "../componets/EditarVenta";
 
 function DetallesVenta() {
   const params = useParams();
   const navigate = useNavigate();
 
   const [salesDetails, setSalesDetails] = useState(null);
+
+  const [isUpdateFormShowing, setIsUpdateFormShowing] = useState(false)
+
+    const handleToggleUpdateForm = () => {
+        setIsUpdateFormShowing(!isUpdateFormShowing)
+    }
+
+
 
   useEffect(() => {
     getDetails();
@@ -35,8 +44,17 @@ function DetallesVenta() {
       <h3>Estado: {salesDetails.condition}</h3>
       <h3>Precio: {salesDetails.price}</h3>
       <h4>Plataform: {salesDetails.platform}</h4>
-      <h5>Ejemplares disponibles: {salesDetails.quantity}</h5>
+      <h5>Vendedor: {salesDetails.seller}</h5>
       <p>{salesDetails.description}</p>
+
+
+      <button onClick={handleToggleUpdateForm}>
+        Modificar valores de la venta
+      </button>
+      {isUpdateFormShowing === true ? <EditarVenta salesDetails={salesDetails} /> :null}
+
+
+
     </div>
   );
 }

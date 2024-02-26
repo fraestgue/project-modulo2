@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import API_URL from '../utils/api'
 
 function SearchSale(props) {
-    console.log(props)
+    // console.log(props)
 
-    const [searchQuery, setSearchQuery] = useState()
+    const [searchQuery, setSearchQuery] = useState("")
 
     const handleSearch = (event) => {
         setSearchQuery(event.target.value)
@@ -20,7 +20,7 @@ function SearchSale(props) {
         try {
             
             const response = await axios.get(`${API_URL}/games?key=${import.meta.env.VITE_KEY_API}&search=${searchQuery}`)
-            console.log(response.data)
+            // console.log(response.data)
 
             props.setSearchGames(response.data.results.slice(0,5))
 

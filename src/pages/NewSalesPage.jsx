@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SearchSale from "../componets/SearchSale";
-import axios from "axios";
-import API_URL from "../utils/api";
+
 import SalesForm from "../componets/SalesForm";
 
 function NewSalesPage() {
@@ -9,9 +8,7 @@ function NewSalesPage() {
   const [searchGames, setSearchGames] = useState(null);
   const [isAddFormShowing, setIsAddFormShowing] = useState(false)
 
-  const handleGame = () => {
-    setIsAddFormShowing(true)
-  }
+ 
 
   return (
     <div>
@@ -25,6 +22,7 @@ function NewSalesPage() {
               <div key={eachGame.id} onClick={() => {
                 setIsAddFormShowing(true)
                 setGameOnSale(eachGame)
+                setSearchGames([])
               }}>
                 <img
                   src={eachGame.background_image}
@@ -37,7 +35,7 @@ function NewSalesPage() {
           })}
         </div>
       )}
-      {isAddFormShowing === true && <SalesForm gameOnSale={gameOnSale} setGameOnSale={setGameOnSale}/>} 
+      {isAddFormShowing === true && <SalesForm gameOnSale={gameOnSale} />} 
     </div>
   );
 }
