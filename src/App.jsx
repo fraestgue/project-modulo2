@@ -10,7 +10,7 @@ import AboutPage from "./pages/AboutPage"
 import ErrorPage from "./pages/ErrorPage"
 import Error404NotFundPage from "./pages/Error404NotFundPage"
 import './App.css'
-import SalesForm from "./pages/SalesForm"
+import NewSalesPage from "./pages/NewSalesPage"
 
 function App() {
   
@@ -26,7 +26,7 @@ function App() {
       <Route path={"/games/:gameId"} element={<GameDetailsPage />}/>
       <Route path={"/sales"} element={<JuegosEnVenta />}/>
       <Route path={"/sales/:salesId"} element={<DetallesVenta />}/>
-      <Route path={"/sales/form"} element={<SalesForm />} />
+      <Route path={"/sales/form"} element={<NewSalesPage />} />
       <Route path={"/about"} element={<AboutPage />}/>
       
       <Route path={"/errorpage"} element={<ErrorPage />}/>
