@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import API_URL from "../utils/api"
-import KEY_API from "../utils/keyapi"
+
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Homepage() {
 
     const [allPlatforms, setAllPlatforms] = useState(null)
+    const navigate = useNavigate()
 
     useEffect(() => {
         getData()
@@ -15,7 +16,7 @@ function Homepage() {
     const getData = async () => {
         try {
 
-            const response = await axios.get(`${API_URL}/platforms${KEY_API}`)
+            const response = await axios.get(`${API_URL}/platforms?key=${import.meta.env.VITE_KEY_API}`)
             // console.log(response.data)
             setAllPlatforms(response.data)
 
@@ -23,6 +24,7 @@ function Homepage() {
             
         } catch (error) {
             console.log(error)
+            navigate("/errorpage")
         }
     }
 
@@ -31,35 +33,25 @@ function Homepage() {
         return <h3>...Buscando</h3>
     }
 
-    const platformArr = allPlatforms.results
+    const platformArr = allPlatforms.results.slice(0, 6)
 
 
 
   return (
     <div>
-        <Link to={`/platforms/${platformArr[0].id}`}>
-        <h2>{platformArr[0].name} </h2>  
-        <hr />
-        </Link>
-        <Link to={`/platforms/${platformArr[1].id}`}>
-        <h2>{platformArr[1].name} </h2>  
-        <hr />
-        </Link>
-        <Link to={`/platforms/${platformArr[2].id}`}>
-        <h2>{platformArr[2].name} </h2>  
-        <hr />
-        </Link>
-        <Link to={`/platforms/${platformArr[3].id}`}>
-        <h2>{platformArr[3].name} </h2>  
-        <hr />
-        </Link>
-        <Link to={`/platforms/${platformArr[5].id}`}>
-        <h2>{platformArr[5].name} </h2>  
-        <hr />
-        </Link>
-        <Link to={`/platforms/${platformArr[4].id}`}>
-        <h2>{platformArr[4].name} </h2>  
-        <hr />
+        {platformArr.map((eachPlatform) => {
+            return ( <div key={eachPlatform.id}>
+
+            <Link to={`/platforms/${eachPlatform.id}`}>
+            <h2>{eachPlatform.name} </h2>  
+            <hr />
+            </Link>
+            </div>
+            )
+        })}
+
+        <Link to={"/sales"}>
+        <h3>Juegos en venta</h3>
         </Link>
 
 

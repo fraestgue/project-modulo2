@@ -2,7 +2,7 @@ import React from 'react'
 
 function Error404NotFundPage() {
   return (
-    <div>Error404NotFundPage</div>
+    <div>VAYA! PARECE QUE TE HAS PERDIDO. VUELVE AL INICIO</div>
   )
 }
 

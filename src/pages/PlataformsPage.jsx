@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import API_URL from '../utils/api'
-import KEY_API from '../utils/keyapi'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 function PlataformsPage() {
 
   const params = useParams()
+  const navigate = useNavigate()
 
   const [allGames, setAllGames] = useState(null)
 
@@ -17,11 +17,12 @@ function PlataformsPage() {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`${API_URL}/games${KEY_API}&platform=${params.platformId}`)
+      const response = await axios.get(`${API_URL}/games?key=${import.meta.env.VITE_KEY_API}&platform=${params.platformId}`)
       // console.log(response.data)
       setAllGames(response.data)
     } catch (error) {
-      console.log(error)
+      // console.log(error)
+      navigate("/errorpage")
     }
   }
 

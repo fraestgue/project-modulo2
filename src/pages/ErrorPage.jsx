@@ -2,7 +2,7 @@ import React from 'react'
 
 function ErrorPage() {
   return (
-    <div>ErrorPage</div>
+    <div>ERROR AL CONECTAR CON EL SERVIDOR. VUELVE A INTENTARLO EN UNOS MINUTOS</div>
   )
 }
 
