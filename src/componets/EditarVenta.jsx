@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
+import JSON_URL from "../utils/json"
 
 function EditarVenta(props) {
 
   const params = useParams()
+  const navigate = useNavigate()
 
   console.log(params)
 
@@ -18,7 +21,7 @@ function EditarVenta(props) {
   const handlePrice = (event) => {
     setPrice(event.target.value)
   }
-  const handlePCondition = (event) => {
+  const handleCondition = (event) => {
     setCondition(event.target.value)
   }
   const handlePlatform = (event) => {
@@ -58,10 +61,10 @@ function EditarVenta(props) {
 
   return (
     <div>
-      <form >
+      <form onSubmit={handleSubmit}>
         
         <label>Estado del juego: </label>
-        <select name="condition" onChange={handlePCondition} value={condition}>
+        <select name="condition" onChange={handleCondition} value={condition}>
           <option value=""> --{props.salesDetails.condition}--</option>
           <option value="new">new</option>
           <option value="semi-new">semi-new</option>
@@ -81,6 +84,9 @@ function EditarVenta(props) {
           <label>Vendedor: </label>
         <input name="seller" onChange={handleSeller} value={seller} type="text">
         </input>
+        <div>
+          <button>Guarda tus cambios</button>
+        </div>
       </form>
       
     </div>
