@@ -10,7 +10,7 @@ function DetallesVenta() {
   const navigate = useNavigate();
 
   const [salesDetails, setSalesDetails] = useState(null);
-  console.log(salesDetails)
+  
   const [dataGameApi, setDataGameApi] = useState(null);
 
   const [isUpdateFormShowing, setIsUpdateFormShowing] = useState(false)
@@ -29,14 +29,14 @@ function DetallesVenta() {
   const getDetails = async () => {
     try {
       const response = await axios.get(`${JSON_URL}/sales/${params.salesId}`);
-      console.log(response.data);
+      
       setSalesDetails(response.data);
 
       const responseAPI = await axios.get(`${API_URL}/games/${response.data.gameApiId}?key=${import.meta.env.VITE_KEY_API}`)
-      console.log(responseAPI.data)
+      
       setDataGameApi(responseAPI.data)
     } catch (error) {
-      console.log(error);
+      
       navigate("/errorpage");
     }
   };
@@ -54,7 +54,8 @@ function DetallesVenta() {
       setSalesDetails(null)
       navigate("/sales")
     } catch (error) {
-      console.log(error)
+      
+      navigate("/errorpage")
     }
 
   }

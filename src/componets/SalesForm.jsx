@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function SalesForm(props) {
-  console.log(props.gameOnSale)
+  
 
   const navigate = useNavigate()
   
@@ -54,7 +54,8 @@ function SalesForm(props) {
 
       
     } catch (error) {
-      console.log(error)
+      
+      navigate("/errorpage")
     }
 
     

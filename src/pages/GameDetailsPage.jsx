@@ -19,10 +19,9 @@ function GameDetailsPage() {
       const response = await axios.get(
         `${API_URL}/games/${params.gameId}?key=${import.meta.env.VITE_KEY_API}`
       );
-      console.log(response.data);
       setGame(response.data);
     } catch (error) {
-      console.log(error);
+     
       navigate("/errorpage")
     }
   };

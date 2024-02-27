@@ -17,10 +17,10 @@ function Homepage() {
       const response = await axios.get(
         `${API_URL}/platforms?key=${import.meta.env.VITE_KEY_API}`
       );
-      // console.log(response.data)
+      
       setAllPlatforms(response.data);
     } catch (error) {
-      console.log(error);
+     
       navigate("/errorpage");
     }
   };
@@ -30,7 +30,7 @@ function Homepage() {
   }
 
   const platformArr = allPlatforms.results.slice(0, 6);
-  console.log(platformArr)
+ 
 //foreach
   return (
     <div>

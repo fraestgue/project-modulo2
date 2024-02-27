@@ -1,15 +1,16 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import API_URL from '../utils/api'
+import { useNavigate } from 'react-router-dom'
 
 function SearchSale(props) {
-    // console.log(props)
+
+    const navigate = useNavigate()
 
     const [searchQuery, setSearchQuery] = useState("")
 
     const handleSearch = (event) => {
         setSearchQuery(event.target.value)
-        console.log(event.target.value)
         
     }
 
@@ -20,13 +21,12 @@ function SearchSale(props) {
         try {
             
             const response = await axios.get(`${API_URL}/games?key=${import.meta.env.VITE_KEY_API}&search=${searchQuery}`)
-            // console.log(response.data)
 
             props.setSearchGames(response.data.results.slice(0,5))
 
 
         } catch (error) {
-            console.log(error)
+            navigate("/errorpage")
         }
 
     }

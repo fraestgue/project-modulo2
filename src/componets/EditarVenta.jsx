@@ -9,11 +9,6 @@ function EditarVenta(props) {
   const params = useParams()
   const navigate = useNavigate()
 
-  //console.log(params)
-
-
-  //console.log(props.salesDetails)
-
   const [price, setPrice] = useState(props.salesDetails.price)
   const [condition, setCondition] = useState(props.salesDetails.condition)
   const [platform, setPlatform] = useState(props.salesDetails.platform)
@@ -53,7 +48,7 @@ function EditarVenta(props) {
 
       
     } catch (error) {
-      console.log(error)
+      
       navigate("/errorpage")
     }
   }
@@ -61,11 +56,10 @@ function EditarVenta(props) {
   const getDataApi = async () => {
     try {
       const response = await axios.get(`${API_URL}/games/${props.salesDetails.gameApiId}?key=${import.meta.env.VITE_KEY_API}`)
-      // console.log(response.data)
       setGameDetails(response.data)
 
     } catch (error) {
-      console.log(error)
+      
       navigate("/errorpage")
     }
   }
