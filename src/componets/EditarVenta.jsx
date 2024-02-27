@@ -1,22 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import JSON_URL from "../utils/json"
+import API_URL from '../utils/api'
 
 function EditarVenta(props) {
 
   const params = useParams()
   const navigate = useNavigate()
 
-  console.log(params)
+  //console.log(params)
 
 
-  console.log(props.salesDetails)
+  //console.log(props.salesDetails)
 
   const [price, setPrice] = useState(props.salesDetails.price)
   const [condition, setCondition] = useState(props.salesDetails.condition)
   const [platform, setPlatform] = useState(props.salesDetails.platform)
   const [seller, setSeller] = useState(props.salesDetails.seller)
+  const [gameDetails, setGameDetails] = useState()
 
   const handlePrice = (event) => {
     setPrice(event.target.value)
@@ -52,13 +54,24 @@ function EditarVenta(props) {
       
     } catch (error) {
       console.log(error)
+      navigate("/errorpage")
+    }
+  }
+
+  const getDataApi = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/games/${props.salesDetails.gameApiId}?key=${import.meta.env.VITE_KEY_API}`)
+      // console.log(response.data)
+      setGameDetails(response.data)
+
+    } catch (error) {
+      console.log(error)
+      navigate("/errorpage")
     }
   }
   
-
-
-
-
+  getDataApi()
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -74,13 +87,13 @@ function EditarVenta(props) {
         <input name="price" onChange={handlePrice} value={price} type="number">
         </input>
 
-        {/* <label>Plataforma: </label>
-        <select name="platform" onChange={handlePlatform} value={platform}>
-          <option value=""> --{props.salesDetails.platform}--</option>
-          {props.gameDetails.platforms.map((eachElement) => {
-            return (<option key={eachElement.platform.id} value="new">{eachElement.platform.name}</option>)
+        <label>Plataforma: </label>
+        <select name="platform" onChange={handlePlatform}>
+          <option value={props.salesDetails.platform}> --{props.salesDetails.platform}--</option>
+          {props.dataGameApi.platforms.map((eachElement) => {
+            return (<option key={eachElement.platform.id} value={eachElement.platform.name}>{eachElement.platform.name}</option>)
           })}
-          </select> */}
+          </select>
           <label>Vendedor: </label>
         <input name="seller" onChange={handleSeller} value={seller} type="text">
         </input>

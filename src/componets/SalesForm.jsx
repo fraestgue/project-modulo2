@@ -80,10 +80,10 @@ function SalesForm(props) {
         </input>
 
         <label>Plataforma: </label>
-        <select name="platform" onChange={handlePlatform} value={platform}>
+        <select name="platform" onChange={handlePlatform}>
           <option value=""> --PLATAFORMA--</option>
           {props.gameOnSale.platforms.map((eachElement) => {
-            return (<option key={eachElement.platform.id} value="new">{eachElement.platform.name}</option>)
+            return (<option key={eachElement.platform.id} value={eachElement.platform.name}>{eachElement.platform.name}</option>)
           })}
 
           {/* AQUI HAY UN PROBLEMA Y ES QUE PONGAS LA PLATAFORMA QUE PONGAS SIEMPRE APARECE LA PRIMERA QUE ES "PC" */}

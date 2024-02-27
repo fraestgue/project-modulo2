@@ -3,12 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import JSON_URL from "../utils/json";
 import EditarVenta from "../componets/EditarVenta";
+import API_URL from "../utils/api";
 
 function DetallesVenta() {
   const params = useParams();
   const navigate = useNavigate();
 
   const [salesDetails, setSalesDetails] = useState(null);
+  console.log(salesDetails)
+  const [dataGameApi, setDataGameApi] = useState(null);
 
   const [isUpdateFormShowing, setIsUpdateFormShowing] = useState(false)
 
@@ -20,6 +23,7 @@ function DetallesVenta() {
 
   useEffect(() => {
     getDetails();
+    
   }, []);
 
   const getDetails = async () => {
@@ -27,6 +31,10 @@ function DetallesVenta() {
       const response = await axios.get(`${JSON_URL}/sales/${params.salesId}`);
       console.log(response.data);
       setSalesDetails(response.data);
+
+      const responseAPI = await axios.get(`${API_URL}/games/${response.data.gameApiId}?key=${import.meta.env.VITE_KEY_API}`)
+      console.log(responseAPI.data)
+      setDataGameApi(responseAPI.data)
     } catch (error) {
       console.log(error);
       navigate("/errorpage");
@@ -35,6 +43,9 @@ function DetallesVenta() {
 
   if (salesDetails === null) {
     return <h3>...buscando</h3>;
+  }
+  if (dataGameApi === null) {
+    return <h3>...buscando</h3>
   }
 
   const handleRemoveSale = async () => {
@@ -48,6 +59,7 @@ function DetallesVenta() {
 
   }
 
+
   return (
     <div>
       <img src={salesDetails.background_image} alt="juego" width={"120px"} />
@@ -56,14 +68,14 @@ function DetallesVenta() {
       <h3>Precio: {salesDetails.price}</h3>
       <h4>Plataform: {salesDetails.platform}</h4>
       <h5>Vendedor: {salesDetails.seller}</h5>
-      <p>{salesDetails.description}</p>
+      <p>{dataGameApi.description_raw}</p>
 
 
       <button onClick={handleToggleUpdateForm}>
         Modificar valores de la venta
       </button>
       <button onClick={handleRemoveSale}>Elimina la venta</button>
-      {isUpdateFormShowing === true ? <EditarVenta salesDetails={salesDetails} /> :null}
+      {isUpdateFormShowing === true ? <EditarVenta salesDetails={salesDetails} dataGameApi={dataGameApi}/> :null}
 
 
 

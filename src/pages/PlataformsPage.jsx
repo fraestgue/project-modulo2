@@ -17,7 +17,8 @@ function PlataformsPage() {
 
   const getData = async () => {
     try {
-      const response = await axios.get(`${API_URL}/games?key=${import.meta.env.VITE_KEY_API}&platform=${params.platformId}`)
+      console.log(params.platformId)
+      const response = await axios.get(`${API_URL}/games?key=${import.meta.env.VITE_KEY_API}&platforms=${params.platformId}`)
       // console.log(response.data)
       setAllGames(response.data)
     } catch (error) {

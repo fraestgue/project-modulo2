@@ -1,62 +1,55 @@
-import React, { useEffect, useState } from 'react'
-import API_URL from "../utils/api"
+import React, { useEffect, useState } from "react";
+import API_URL from "../utils/api";
 
 import axios from "axios";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 function Homepage() {
+  const [allPlatforms, setAllPlatforms] = useState(null);
+  const navigate = useNavigate();
 
-    const [allPlatforms, setAllPlatforms] = useState(null)
-    const navigate = useNavigate()
+  useEffect(() => {
+    getData();
+  }, []);
 
-    useEffect(() => {
-        getData()
-    }, [])
-
-    const getData = async () => {
-        try {
-
-            const response = await axios.get(`${API_URL}/platforms?key=${import.meta.env.VITE_KEY_API}`)
-            // console.log(response.data)
-            setAllPlatforms(response.data)
-
-
-            
-        } catch (error) {
-            console.log(error)
-            navigate("/errorpage")
-        }
+  const getData = async () => {
+    try {
+      const response = await axios.get(
+        `${API_URL}/platforms?key=${import.meta.env.VITE_KEY_API}`
+      );
+      // console.log(response.data)
+      setAllPlatforms(response.data);
+    } catch (error) {
+      console.log(error);
+      navigate("/errorpage");
     }
+  };
 
+  if (allPlatforms === null) {
+    return <h3>...Buscando</h3>;
+  }
 
-    if (allPlatforms === null) {
-        return <h3>...Buscando</h3>
-    }
-
-    const platformArr = allPlatforms.results.slice(0, 6)
-
-
-
+  const platformArr = allPlatforms.results.slice(0, 6);
+  console.log(platformArr)
+//foreach
   return (
     <div>
-        {platformArr.map((eachPlatform) => {
-            return ( <div key={eachPlatform.id}>
-
+      {platformArr.map((eachPlatform) => {
+        return (
+          <div key={eachPlatform.id}>
             <Link to={`/platforms/${eachPlatform.id}`}>
-            <h2>{eachPlatform.name} </h2>  
-            <hr />
+              <h2>{eachPlatform.name} </h2>
+              <hr />
             </Link>
-            </div>
-            )
-        })}
+          </div>
+        );
+      })}
 
-        <Link to={"/sales"}>
+      <Link to={"/sales"}>
         <h3>Juegos en venta</h3>
-        </Link>
-
-
+      </Link>
     </div>
-  )
+  );
 }
 
-export default Homepage
+export default Homepage;
