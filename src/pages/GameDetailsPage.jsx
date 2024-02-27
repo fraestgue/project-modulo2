@@ -6,7 +6,7 @@ import axios from "axios";
 
 function GameDetailsPage() {
   const params = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [game, setGame] = useState(null);
 
@@ -21,8 +21,7 @@ function GameDetailsPage() {
       );
       setGame(response.data);
     } catch (error) {
-     
-      navigate("/errorpage")
+      navigate("/errorpage");
     }
   };
 
@@ -33,29 +32,43 @@ function GameDetailsPage() {
   // podemos hacer funcion fuera y pasarla o hacer la funcion anonima
 
   const volverAtras = () => {
-    navigate(-1)
-  }
-
+    navigate(-1);
+  };
 
   return (
     <div>
-      <button onClick={volverAtras}>
-        atrás
+      <button
+        type="button"
+        className="nes-btn is-warning"
+        onClick={volverAtras}
+      >
+        🔙
       </button>
-      <h2>{game.name}</h2>
-      <img src={game.background_image} alt="juego" width={"200px"} />
-      <hr />
-      <article>{game.description_raw}</article>
-      <hr />
+          <h2>{game.name}</h2>
+          <img src={game.background_image} alt="juego" width={"200px"} />
+          <hr />
+          <div className="nes-container is-dark with-title">
+            <p className="title">{game.name}</p>
+            <p>{game.description_raw}</p>
+          </div>
+          <hr />
 
-        <div>
-        Principales plataformas: 
-        {game.parent_platforms.map((eachPlatform) => {
-          return <p key={eachPlatform.platform.id}>{eachPlatform.platform.name}</p>;
-        })}
-        </div>
-      
-      <p>Rating sobre 5: {game.rating}</p>
+      <div className="lists">
+        <ul className="nes-list is-circle">
+          
+            Principales plataformas:
+            {game.parent_platforms.map((eachPlatform) => {
+              return (
+                <li key={eachPlatform.platform.id}>
+                  {eachPlatform.platform.name}
+                </li>
+              );
+            })}
+          
+
+          <p>Rating sobre 5: {game.rating}</p>
+        </ul>
+      </div>
     </div>
   );
 }

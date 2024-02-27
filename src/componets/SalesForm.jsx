@@ -63,41 +63,39 @@ function SalesForm(props) {
 
 
   return (
-    <div>
+    <div className="nes-field">
 
       <form onSubmit={handleSubmit}>
       <img src={props.gameOnSale.background_image} alt="juego" width={"180px"}/>
       <h2>{props.gameOnSale.name}</h2>
         
         <label>Estado del juego: </label>
-        <select name="condition" onChange={handleCondition} value={condition}>
+        <select name="condition" onChange={handleCondition} value={condition} id="warning_field" className="nes-input is-warning">
           <option value=""> --ESTADO DEL JUEGO--</option>
           <option value="new">new</option>
           <option value="semi-new">semi-new</option>
         </select>
 
         <label>Precio: </label>
-        <input name="price" onChange={handlePrice} value={price} type="number">
+        <input name="price" onChange={handlePrice} value={price} type="number" id="warning_field" className="nes-input is-warning">
         </input>
 
         <label>Plataforma: </label>
-        <select name="platform" onChange={handlePlatform}>
+        <select name="platform" onChange={handlePlatform} id="warning_field" className="nes-input is-warning">
           <option value=""> --PLATAFORMA--</option>
           {props.gameOnSale.platforms.map((eachElement) => {
             return (<option key={eachElement.platform.id} value={eachElement.platform.name}>{eachElement.platform.name}</option>)
           })}
-
-          {/* AQUI HAY UN PROBLEMA Y ES QUE PONGAS LA PLATAFORMA QUE PONGAS SIEMPRE APARECE LA PRIMERA QUE ES "PC" */}
          
         </select>
 
         <label>Vendedor: </label>
-        <input name="seller" onChange={handleSeller} value={seller} type="text">
+        <input name="seller" onChange={handleSeller} value={seller} type="text" id="warning_field" className="nes-input is-warning">
         </input>
 
         
 
-        <button>Poner a la venta</button>
+        <button type="button" className="nes-btn is-warning">Poner a la venta</button>
       </form>
     </div>
   );

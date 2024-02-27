@@ -35,8 +35,9 @@ function JuegosEnVenta() {
 
   return (
     <div>
-      <button onClick={volverAtras}>
-        atrás
+      <button onClick={volverAtras}  type="button"
+        className="nes-btn is-warning">
+        🔙
       </button>
       {gameSales.map((eachGame) => {
         return (
@@ -56,7 +57,7 @@ function JuegosEnVenta() {
        
       })}
        <Link to={"/sales/form"}>
-        <button>Pon un juego a la venta</button>
+        <button type="button" className="nes-btn is-warning">Pon un juego a la venta</button>
       </Link>
     </div>
   );

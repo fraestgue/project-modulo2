@@ -41,8 +41,9 @@ function PlataformsPage() {
 
   return (
     <div>
-      <button onClick={volverAtras}>
-        atrás
+      <button onClick={volverAtras} type="button"
+        className="nes-btn is-warning">
+        🔙
       </button>
       {games.map((eachGame) => {
         return <div key={eachGame.id}>

@@ -9,7 +9,7 @@ function Navbar() {
 
 
   return (
-    <div>
+    <div className='navbar'>
         <Link to={"/"}>
         <img src={logo} width="120px" alt="logo" />
         <h1>GAMEHYPE</h1>

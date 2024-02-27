@@ -67,22 +67,36 @@ function DetallesVenta() {
 
   return (
     <div>
-      <button onClick={volverAtras}>
-        atrás
+      <div>
+
+      <button onClick={volverAtras} type="button" className="nes-btn is-warning">
+      🔙
       </button>
-      <img src={salesDetails.background_image} alt="juego" width={"120px"} />
+      </div>
       <h2>{salesDetails.name}</h2>
-      <h3>Estado: {salesDetails.condition}</h3>
-      <h3>Precio: {salesDetails.price}</h3>
-      <h4>Plataform: {salesDetails.platform}</h4>
-      <h5>Vendedor: {salesDetails.seller}</h5>
-      <p>{dataGameApi.description_raw}</p>
+      <img src={salesDetails.background_image} alt="juego" width={"250px"} />
+      <div className="lists">
+        <ul className="nes-list is-circle">
+      <li>Estado: {salesDetails.condition}</li>
+      <li>Precio: {salesDetails.price} €</li>
+      <li>Plataform: {salesDetails.platform}</li>
+      <li>Vendedor: {salesDetails.seller}</li>
+      </ul>
+      </div>
 
 
-      <button onClick={handleToggleUpdateForm}>
+      <div className="nes-container is-dark with-title">
+  <p className="title">{salesDetails.name}</p>
+  <p>{dataGameApi.description_raw}</p>
+</div>
+      {/* <p>{dataGameApi.description_raw}</p> */}
+
+
+      <button onClick={handleToggleUpdateForm} type="button" className="nes-btn is-warning">
         Modificar valores de la venta
       </button>
-      <button onClick={handleRemoveSale}>Elimina la venta</button>
+      <button onClick={handleRemoveSale} type="button" className="nes-btn is-warning icon-list">
+      <i className="nes-icon close is-small"></i> Elimina la venta</button>
       {isUpdateFormShowing === true ? <EditarVenta salesDetails={salesDetails} dataGameApi={dataGameApi}/> :null}
 
 

@@ -16,8 +16,9 @@ function NewSalesPage() {
 
   return (
     <div>
-      <button onClick={volverAtras}>
-        atrás
+      <button onClick={volverAtras}  type="button"
+        className="nes-btn is-warning">
+      🔙
       </button>
       <SearchSale setSearchGames={setSearchGames} />
       {searchGames === null ? (
