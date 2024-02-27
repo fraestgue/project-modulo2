@@ -27,10 +27,17 @@ function JuegosEnVenta() {
     return <h3>...buscando</h3>;
   }
 
+  const volverAtras = () => {
+    navigate(-1)
+  }
+
   
 
   return (
     <div>
+      <button onClick={volverAtras}>
+        atrás
+      </button>
       {gameSales.map((eachGame) => {
         return (
           <div key={eachGame.id}>

@@ -12,7 +12,7 @@ function GameDetailsPage() {
 
   useEffect(() => {
     getGames();
-  }, []);
+  }, [params.gameId]);
 
   const getGames = async () => {
     try {
@@ -30,10 +30,18 @@ function GameDetailsPage() {
     return <h3>...buscando juego</h3>;
   }
 
-  // const gameDetails = game.results
+  // podemos hacer funcion fuera y pasarla o hacer la funcion anonima
+
+  const volverAtras = () => {
+    navigate(-1)
+  }
+
 
   return (
     <div>
+      <button onClick={volverAtras}>
+        atrás
+      </button>
       <h2>{game.name}</h2>
       <img src={game.background_image} alt="juego" width={"200px"} />
       <hr />

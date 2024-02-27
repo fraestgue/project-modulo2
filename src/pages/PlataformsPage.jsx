@@ -32,11 +32,18 @@ function PlataformsPage() {
   }
 
   const games = allGames.results
+
+  const volverAtras = () => {
+    navigate(-1)
+  }
  
 
 
   return (
     <div>
+      <button onClick={volverAtras}>
+        atrás
+      </button>
       {games.map((eachGame) => {
         return <div key={eachGame.id}>
           <Link to={`/games/${eachGame.id}`}>

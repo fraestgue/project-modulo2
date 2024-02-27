@@ -8,10 +8,17 @@ function NewSalesPage() {
   const [searchGames, setSearchGames] = useState(null);
   const [isAddFormShowing, setIsAddFormShowing] = useState(false)
 
+  const volverAtras = () => {
+    navigate(-1)
+  }
+
  
 
   return (
     <div>
+      <button onClick={volverAtras}>
+        atrás
+      </button>
       <SearchSale setSearchGames={setSearchGames} />
       {searchGames === null ? (
         <h2>Busca el juego a vender</h2>

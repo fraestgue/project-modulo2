@@ -11,6 +11,10 @@ function Searchbar(props) {
   const [searchGames, setSearchGames] = useState(null);
 
   useEffect(() => {
+
+    if (searchQuery === "") {
+      return 
+    }
     const delay = setTimeout(() => {
       try {
         const response = axios
@@ -35,8 +39,11 @@ function Searchbar(props) {
     setSearchQuery(event.target.value);
   };
 
-  if (searchGames === null) {
-    return <h3>busca un juego</h3>
+  const handleClear = (event) => {
+    // que desaparezcan los juegos buscados
+    // que se borre lo que hay dentro de la barra de buscar
+    setSearchQuery("")
+    setSearchGames(null)
   }
 
 
@@ -52,12 +59,12 @@ function Searchbar(props) {
       />
 
       {searchGames === null ? (
-        <h3>busca un juego</h3>
+        null
       ) : (
         <div>
           {searchGames.map((eachGame) => {
             return (
-              <div key={eachGame.id}>
+              <div key={eachGame.id} onClick={handleClear}>
                 <Link to={`/games/${eachGame.id}`}>
 
                 <img

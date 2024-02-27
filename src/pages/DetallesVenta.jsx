@@ -60,9 +60,16 @@ function DetallesVenta() {
 
   }
 
+  const volverAtras = () => {
+    navigate(-1)
+  }
+
 
   return (
     <div>
+      <button onClick={volverAtras}>
+        atrás
+      </button>
       <img src={salesDetails.background_image} alt="juego" width={"120px"} />
       <h2>{salesDetails.name}</h2>
       <h3>Estado: {salesDetails.condition}</h3>
