@@ -124,7 +124,7 @@ function EditarVenta(props) {
           className="nes-input is-warning"
         ></input>
         <div>
-          <button type="button" className="nes-btn is-warning">
+          <button className="nes-btn is-warning">
             Guarda tus cambios
           </button>
         </div>

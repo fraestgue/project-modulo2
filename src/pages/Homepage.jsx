@@ -46,7 +46,7 @@ function Homepage() {
  
 //foreach
   return (
-    <div>
+    <div >
       {/* <Carousel>
         <Carousel.Item interval={2000}>
 
@@ -92,8 +92,8 @@ function Homepage() {
 
       {platformArr.map((eachPlatform) => {
         return (
-          <div key={eachPlatform.id}>
-            <Link to={`/platforms/${eachPlatform.id}`}>
+          <div key={eachPlatform.id} >
+            <Link to={`/platforms/${eachPlatform.id}`} className="platforms">
               <h2>{eachPlatform.name} </h2>
               <hr />
             </Link>
@@ -101,13 +101,15 @@ function Homepage() {
         );
       })}
 
-      <Link to={"/retro"}>RETRO</Link>
+      <Link to={"/retro"} className="platforms"><h2>RETRO</h2>
       <hr />
-
-      <Link to={"/sales"}>
-        <h3>Juegos en venta</h3>
       </Link>
+
+      <Link to={"/sales"} className="platforms">
+        <h3>Juegos en venta</h3>
+
       <hr />
+      </Link>
     </div>
   );
 }

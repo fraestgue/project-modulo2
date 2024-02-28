@@ -12,6 +12,8 @@ import Error404NotFundPage from "./pages/Error404NotFundPage"
 import './App.css'
 import NewSalesPage from "./pages/NewSalesPage"
 import RetroPage from "./pages/RetroPage"
+import RetroPlatforms from "./pages/RetroPlatforms"
+
 
 function App() {
   
@@ -29,6 +31,8 @@ function App() {
       <Route path={"/sales/:salesId"} element={<DetallesVenta />}/>
       <Route path={"/sales/form"} element={<NewSalesPage />} />
       <Route path={"/retro"} element={ <RetroPage /> } />
+      <Route path={"/retro/:platformId"} element={ <RetroPlatforms /> }
+        />
       <Route path={"/about"} element={<AboutPage />}/>
       
       <Route path={"/errorpage"} element={<ErrorPage />}/>

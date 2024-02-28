@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <div className='navbar'>
-        <Link to={"/"}>
+        <Link to={"/"} className='navbar'>
         <img src={logo} width="120px" alt="logo" />
         <h1>GAMEHYPE</h1>
         </Link>

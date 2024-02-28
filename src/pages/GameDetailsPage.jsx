@@ -44,17 +44,17 @@ function GameDetailsPage() {
       >
         🔙
       </button>
-          <h2>{game.name}</h2>
+          <h2 className="nes-container is-rounded is-dark">{game.name}</h2>
           <img src={game.background_image} alt="juego" width={"200px"} />
-          <hr />
+          
           <div className="nes-container is-dark with-title">
             <p className="title">{game.name}</p>
             <p>{game.description_raw}</p>
           </div>
-          <hr />
+          
 
       <div className="lists">
-        <ul className="nes-list is-circle">
+        <ul className="nes-list is-circle nes-container is-rounded is-dark">
           
             Principales plataformas:
             {game.parent_platforms.map((eachPlatform) => {
