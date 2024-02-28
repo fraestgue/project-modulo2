@@ -9,8 +9,17 @@ import Carousel from "react-bootstrap/Carousel";
 function RetroPage() {
   const [allRetroPlatforms, setAllRetroPlatforms] = useState(null);
   const [mainRetroGame, setMainRetroGame] = useState(null);
+  // const [randomPlatformId, setRandomPlaformId] = useState(null)
 
   const navigate = useNavigate();
+
+  // let randomPlatformId;
+
+  const idRetro = [8, 9, 27, 83, 24, 43, 26, 107, 74, 34]
+
+  const indiceRandom = Math.floor(Math.random() * idRetro.length)
+
+  const plataformaAleatoria = idRetro[indiceRandom]
 
   useEffect(() => {
     getRetroPlat()
@@ -22,7 +31,9 @@ function RetroPage() {
         `${API_URL}/platforms?key=${import.meta.env.VITE_KEY_API}`
       );
       const responseRetroGames = await axios.get(
-        `${API_URL}/games?key=${import.meta.env.VITE_KEY_API}`
+        `${API_URL}/games?key=${import.meta.env.VITE_KEY_API}&platforms=${
+          plataformaAleatoria
+        }`
       );
         
       setAllRetroPlatforms(response.data.results);
@@ -44,11 +55,31 @@ function RetroPage() {
     navigate(-1);
   };
 
-  const retroPlatformsArr = [allRetroPlatforms[8],allRetroPlatforms[9],allRetroPlatforms[17],allRetroPlatforms[23],allRetroPlatforms[24],allRetroPlatforms[25],allRetroPlatforms[26],allRetroPlatforms[37],allRetroPlatforms[41],allRetroPlatforms[44]]
+  console.log(allRetroPlatforms)
+
+  const retroPlatformsArr = []
+  
+  allRetroPlatforms.forEach((eachPlatform) => {
+    if (eachPlatform.id === 8 || eachPlatform.id === 9 || eachPlatform.id === 27 || eachPlatform.id === 83 || eachPlatform.id === 24 || eachPlatform.id === 43 || eachPlatform.id === 26 || eachPlatform.id === 107 || eachPlatform.id === 74 || eachPlatform.id === 34) {
+      retroPlatformsArr.push(eachPlatform)
+    }
+  })
+
+  
+  
   console.log(retroPlatformsArr)
  
 
   console.log(allRetroPlatforms)
+
+  const idRetroArr = []
+  retroPlatformsArr.forEach((eachPlatform) => {
+    idRetroArr.push(eachPlatform.id)
+  })
+
+
+  const carousel = mainRetroGame.slice(0,6)
+  
   
 
   return (
@@ -61,8 +92,8 @@ function RetroPage() {
         🔙
       </button>
       <div>
-      {/* <Carousel>
-        {gameRetroArr.map((eachGame) => {
+      <Carousel>
+        {carousel.map((eachGame) => {
           return (
             <Carousel.Item interval={2000} key={eachGame.id}>
               <Link to={`/games/${eachGame.id}`}>
@@ -74,7 +105,7 @@ function RetroPage() {
             </Carousel.Item>
           );
         })}
-      </Carousel> */}
+      </Carousel>
       </div>
       
       <div>

@@ -38,6 +38,8 @@ function Homepage() {
     return <h3>...buscando juegos</h3>;
   }
 
+  console.log(allPlatforms)
+
   const indiceRandom = Math.floor(Math.random() * mainGame.length);
 
   const platformArr = allPlatforms.results.slice(0, 6);
