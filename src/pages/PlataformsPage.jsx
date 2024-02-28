@@ -47,7 +47,7 @@ function PlataformsPage() {
       </button>
       {games.map((eachGame) => {
         return <div key={eachGame.id}>
-          <Link to={`/games/${eachGame.id}`}>
+          <Link to={`/games/${eachGame.id}`} className="platforms">
           <img src={eachGame.background_image
 } alt="game" width={"200px"} height={"120px"}/>
           <h3>{eachGame.name}</h3>

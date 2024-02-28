@@ -41,7 +41,7 @@ function JuegosEnVenta() {
       </button>
       {gameSales.map((eachGame) => {
         return (
-          <div key={eachGame.id}>
+          <div key={eachGame.id} className="platforms">
             <Link to={`/sales/${eachGame.id}`}>
               <img
                 src={eachGame.background_image}

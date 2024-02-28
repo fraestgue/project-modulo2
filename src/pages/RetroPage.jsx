@@ -111,7 +111,7 @@ function RetroPage() {
       <div>
         {retroPlatformsArr.map((eachPlatform) => {
           return (
-            <Link to={`/retro/${eachPlatform.id}`} key={eachPlatform.id}>
+            <Link to={`/retro/${eachPlatform.id}`} className="platforms" key={eachPlatform.id}>
             <h2>{eachPlatform.name}</h2>
             <hr />
             </Link>
