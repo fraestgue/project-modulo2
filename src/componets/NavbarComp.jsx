@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from "../assets/logo.png"
+import logo1 from "../assets/logo1.png"
 import { Link } from 'react-router-dom'
 import Searchbar from "./Searchbar"
 import { useNavigate } from 'react-router-dom'
@@ -69,15 +69,23 @@ function NavbarComp() {
 
     <div className='navbar'>
 
+      <div className='logo'>
+
         <Link to={"/"} className='navbar'>
-        <img src={logo} width="120px" alt="logo" />
+        <img src={logo1} width="120px" alt="logo" />
         
         </Link>
+      </div>
+      <div className='search'>
         <Searchbar />
+      </div>
+
         
         <Navbar variant="dark" bg="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#home">GAMEHYPE</Navbar.Brand>
+        <Link to={"/"}>
+        <Navbar.Brand href="#home"> <span className='icon-list snes-jp-logo gamhype'></span> GAMEHYPE</Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="navbar-dark-example" />
         <Navbar.Collapse id="navbar-dark-example">
           <Nav>
@@ -120,15 +128,10 @@ function NavbarComp() {
               title="Venta de juegos"
               menuVariant="dark"
             >
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              <Link to={"/sales"}>
+              <NavDropdown.Item href="#action/3.1">Ver juegos en venta</NavDropdown.Item>
+              </Link>
+             
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
