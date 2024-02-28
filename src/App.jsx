@@ -1,4 +1,4 @@
-import Navbar from "./componets/Navbar"
+import NavbarComp from "./componets/NavbarComp"
 import Homepage from "./pages/Homepage"
 import Footer from "./componets/Footer"
 import PlatformsPage from "./pages/PlataformsPage"
@@ -21,7 +21,7 @@ function App() {
   return (
 
     <div className="app">
-    <Navbar />
+    <NavbarComp />
    
     <Routes>
       <Route path={"/"} element={<Homepage />} />

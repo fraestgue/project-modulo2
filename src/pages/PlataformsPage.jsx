@@ -13,7 +13,7 @@ function PlataformsPage() {
 
   useEffect(() => {
     getData()
-  }, [])
+  }, [params.platformId])
 
   const getData = async () => {
     try {
