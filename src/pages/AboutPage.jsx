@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function AboutPage() {
+
+  const navigate = useNavigate()
 
   const volverAtras = () => {
     navigate(-1)
@@ -10,7 +13,7 @@ function AboutPage() {
     <div>
 
       <button onClick={volverAtras}>
-        atrás
+      🔙
       </button>
       <div>AboutPage</div>
     </div>

@@ -95,7 +95,7 @@ function SalesForm(props) {
 
         
 
-        <button type="button" className="nes-btn is-warning">Poner a la venta</button>
+        <button type="submit" className="nes-btn is-warning">Poner a la venta</button>
       </form>
     </div>
   );

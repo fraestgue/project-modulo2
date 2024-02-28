@@ -11,6 +11,7 @@ import ErrorPage from "./pages/ErrorPage"
 import Error404NotFundPage from "./pages/Error404NotFundPage"
 import './App.css'
 import NewSalesPage from "./pages/NewSalesPage"
+import RetroPage from "./pages/RetroPage"
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
       <Route path={"/sales"} element={<JuegosEnVenta />}/>
       <Route path={"/sales/:salesId"} element={<DetallesVenta />}/>
       <Route path={"/sales/form"} element={<NewSalesPage />} />
+      <Route path={"/retro"} element={ <RetroPage /> } />
       <Route path={"/about"} element={<AboutPage />}/>
       
       <Route path={"/errorpage"} element={<ErrorPage />}/>
