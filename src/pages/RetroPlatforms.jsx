@@ -4,6 +4,7 @@ import API_URL from "../utils/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
+
 function RetroPlatforms() {
   const params = useParams();
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function RetroPlatforms() {
   const volverAtras = () => {
     navigate(-1);
   };
+ 
 
   return (
     <div>
@@ -46,11 +48,15 @@ function RetroPlatforms() {
         🔙
       </button>
       <hr />
+      <div>
+
+      </div>
+      <hr />
       {allRetroGames.map((eachGame) => {
         return (
           <div key={eachGame.id}>
             <Link to={`/games/${eachGame.id}`} className="platforms">
-              <img src={eachGame.background_image} alt="game" width={"160px"} />
+              <img src={eachGame.background_image} alt="game" width={"200px"} height={"120px"} />
               <h3>{eachGame.name}</h3>
             </Link>
             <hr />

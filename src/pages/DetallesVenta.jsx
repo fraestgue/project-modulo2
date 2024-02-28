@@ -74,7 +74,7 @@ function DetallesVenta() {
       </button>
       </div>
       <h2 className="nes-container is-rounded is-dark">{salesDetails.name}</h2>
-      <img src={salesDetails.background_image} alt="juego" width={"250px"} />
+      <img src={salesDetails.background_image} alt="juego" width={"400px"} height={"250px"} />
       <div className="lists">
         <ul className="nes-list is-circle nes-container is-rounded is-dark">
       <li>Estado: {salesDetails.condition}</li>

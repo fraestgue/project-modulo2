@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"
 function Footer() {
   return (
     <div>
-        <Link to={"/about"}>
+        <Link to={"/about"} className={"footer"}>
         Sobre Nosotros
         </Link>
         <hr />
-        <a href="">GitHub</a>
+        <a href="" className={"footer"}>GitHub</a>
     </div>
   )
 }

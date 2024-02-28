@@ -45,7 +45,7 @@ function GameDetailsPage() {
         🔙
       </button>
           <h2 className="nes-container is-rounded is-dark">{game.name}</h2>
-          <img src={game.background_image} alt="juego" width={"200px"} />
+          <img src={game.background_image} alt="juego" width={"400px"} height={"250px"} />
           
           <div className="nes-container is-dark with-title">
             <p className="title">{game.name}</p>

@@ -49,7 +49,7 @@ function PlataformsPage() {
         return <div key={eachGame.id}>
           <Link to={`/games/${eachGame.id}`}>
           <img src={eachGame.background_image
-} alt="game" width={"160px"} />
+} alt="game" width={"200px"} height={"120px"}/>
           <h3>{eachGame.name}</h3>
           </Link>
           <hr />
