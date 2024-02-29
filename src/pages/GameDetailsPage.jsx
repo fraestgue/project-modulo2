@@ -14,6 +14,7 @@ function GameDetailsPage() {
 
   const [game, setGame] = useState(null);
   const [sales, setSales] = useState(null);
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
     getGames();
@@ -66,8 +67,8 @@ function GameDetailsPage() {
       />
 
       <div className="nes-container is-dark with-title">
-        <p className="title">{game.name}</p>
-        <p>{game.description_raw}</p>
+        <p className="title" onClick={() => {setOpen(!open)}}>{game.name} descripción 🔻</p>
+        {open && (<p>{game.description_raw}</p>)}
       </div>
 
       <div className="lists">

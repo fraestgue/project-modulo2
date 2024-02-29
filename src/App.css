@@ -42,6 +42,17 @@ body{
 .platforms {
   color: #f44855;
 }
+
+
 .footer {
-  color: #f44855
+  display: flex;
+  
+  background-color: #f44855;
+  color: #fcec84;
+  justify-content: space-between;
+  padding: 20px 90px;
+}
+
+.amarillo {
+  color: #fcec84;
 }

@@ -15,6 +15,8 @@ function DetallesVenta() {
   
   const [dataGameApi, setDataGameApi] = useState(null);
 
+  const [open, setOpen] = useState(false)
+
   const [isUpdateFormShowing, setIsUpdateFormShowing] = useState(false)
 
     const handleToggleUpdateForm = () => {
@@ -85,8 +87,10 @@ function DetallesVenta() {
 
 
       <div className="nes-container is-dark with-title">
-  <p className="title">{salesDetails.name}</p>
-  <p>{dataGameApi.description_raw}</p>
+  <p className="title" onClick={() => {setOpen(!open)}}>
+    {salesDetails.name} descripción 🔻</p>
+    {open && ( <p>{dataGameApi.description_raw}</p>)}
+ 
 </div>
       {/* <p>{dataGameApi.description_raw}</p> */}
 
