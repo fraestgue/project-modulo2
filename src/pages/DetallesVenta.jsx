@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, CSSProperties } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import JSON_URL from "../utils/json";
 import EditarVenta from "../componets/EditarVenta";
 import API_URL from "../utils/api";
+import { PacmanLoader } from "react-spinners";
+
 
 function DetallesVenta() {
   const params = useParams();
@@ -41,11 +43,8 @@ function DetallesVenta() {
     }
   };
 
-  if (salesDetails === null) {
-    return <h3>...buscando</h3>;
-  }
-  if (dataGameApi === null) {
-    return <h3>...buscando</h3>
+  if (salesDetails === null || dataGameApi === null) {
+    return <PacmanLoader color="#f44855" />;
   }
 
   const handleRemoveSale = async () => {

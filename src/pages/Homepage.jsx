@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,CSSProperties } from "react";
 import API_URL from "../utils/api";
 import Carousel from "react-bootstrap/Carousel";
 import axios from "axios";
@@ -11,6 +11,7 @@ import xboxone from "../assets/xboxone-logo.png"
 import xboxsx from "../assets/xboxsx-logo.png"
 import nints from "../assets/switch-logo.png"
 import retro from "../assets/retro.png"
+import { PacmanLoader } from "react-spinners";
 
 function Homepage() {
   const [allPlatforms, setAllPlatforms] = useState(null);
@@ -38,12 +39,8 @@ function Homepage() {
     }
   };
 
-  if (allPlatforms === null) {
-    return <h3>...Buscando</h3>;
-  }
-
-  if (mainGame === null) {
-    return <h3>...buscando juegos</h3>;
+  if (allPlatforms === null || mainGame === null) {
+    return <PacmanLoader color="#f44855" />;
   }
 
   

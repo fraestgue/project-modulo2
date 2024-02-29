@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,CSSProperties } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../utils/api";
 import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
+import { PacmanLoader } from "react-spinners";
 
 
 function RetroPage() {
@@ -39,16 +40,12 @@ function RetroPage() {
       setAllRetroPlatforms(response.data.results);
       setMainRetroGame(responseRetroGames.data.results)
     } catch (error) {
-        console.log(error)
-    //   navigate("/errorpage");
+      navigate("/errorpage");
     }
   };
 
-  if (allRetroPlatforms === null) {
-    return <h3>...buscando plataformas</h3>;
-  }
-  if (mainRetroGame === null) {
-    return <h3>...buscando juegos</h3>;
+  if (allRetroPlatforms === null || mainRetroGame === null) {
+    return <PacmanLoader color="#f44855" />;
   }
 
   const volverAtras = () => {

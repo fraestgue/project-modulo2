@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, CSSProperties } from "react";
 import JSON_URL from "../utils/json";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { PacmanLoader } from "react-spinners";
 
 function JuegosEnVenta() {
   const [gameSales, setGameSales] = useState(null);
@@ -24,7 +25,7 @@ function JuegosEnVenta() {
   };
 
   if (gameSales === null) {
-    return <h3>...buscando</h3>;
+    return <PacmanLoader color="#f44855" />;
   }
 
   const volverAtras = () => {

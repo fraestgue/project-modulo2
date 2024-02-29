@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, CSSProperties } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import API_URL from "../utils/api";
 import JSON_URL from "../utils/json";
 import { Link } from "react-router-dom";
+import { PacmanLoader } from "react-spinners";
+
 
 import axios from "axios";
 
@@ -22,7 +24,7 @@ function GameDetailsPage() {
       const response = await axios.get(
         `${API_URL}/games/${params.gameId}?key=${import.meta.env.VITE_KEY_API}`
       );
-      const responseJson = await axios.get(`${JSON_URL}/sales`);
+      const responseJson = await axios.get(`${JSON_URL}/sales?gameApiId=${params.gameId}`);
       console.log(responseJson.data);
       setGame(response.data);
       setSales(responseJson.data);
@@ -32,7 +34,7 @@ function GameDetailsPage() {
   };
 
   if (game === null) {
-    return <h3>...buscando juego</h3>;
+    return <PacmanLoader color="#f44855" />;
   }
   if (sales === null) {
     return;
@@ -82,23 +84,17 @@ function GameDetailsPage() {
         </ul>
       </div>
       <div>
-        {sales.map((eachSale) => {
-          console.log(eachSale);
+        {sales && sales.map((eachSale) => {
+          return (
+          <div className="nes-container is-rounded is-dark" key={eachSale.id}>
+            <Link to={`/sales/${eachSale.id}`} className={"platforms"}>
+          <h3>{eachSale.name}</h3>
+          <h3>{eachSale.seller}</h3>
+          <h3>{eachSale.price}</h3>
+          </Link>
+          </div>
 
-          if (params.gameId === eachSale.gameApiId) {
-            return (
-              <div
-                className="nes-container is-rounded is-dark"
-                key={eachSale.id}
-              >
-                <Link to={`/sales/${eachSale.id}`}>
-                  <h3>{eachSale.name}</h3>
-                  <h3>{eachSale.seller}</h3>
-                  <h3>{eachSale.price}</h3>
-                </Link>
-              </div>
-            );
-          }
+          )
         })}
       </div>
     </div>
