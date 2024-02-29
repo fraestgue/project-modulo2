@@ -1,0 +1,47 @@
+#root {
+  max-width: 1280px;
+
+  text-align: center;
+  margin: 0;
+
+}
+
+
+.navbar {
+  display: flex;
+  position:fixed;
+  background-color: #fcec84;
+  width: 100%;
+  color: #f44855;
+  align-items:center;
+  flex-direction: column;
+
+}
+
+
+.logo {
+  display: flex;
+  
+  align-items: center;
+}
+
+.search {
+  display: flex;
+  position: relative;
+}
+
+body{
+  color: #f44855;
+  margin: 0;
+}
+
+.a {
+  color: #f44855;
+}
+
+.platforms {
+  color: #f44855;
+}
+.footer {
+  color: #f44855
+}
