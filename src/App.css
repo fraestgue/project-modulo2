@@ -73,8 +73,17 @@ body{
   display: block;
 }
 
-.card {
+
+
+.names {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
 }
 
+.enlaces {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

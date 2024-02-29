@@ -33,27 +33,38 @@ function AboutPage() {
         </div>
       </div>
 
-      <div className="nes-container is-dark with-title">
+      <div className="nes-container is-dark with-title ">
         <h2 className="title">Nuestros perfiles:</h2>
-        <h3>Pablo </h3>
+        <div className="about">
+          <div className="names">
+            <h3>Pablo </h3>
+            <h3>Fran</h3>
+          </div>
+         <div className="enlaces">
+
         <a
-          className="nes-icon github is-large"
+          className="nes-icon github is-medium"
           href="https://github.com/PabloSanchezCamara"
         ></a>
         <a
-          className="nes-icon linkedin is-large"
+          className="nes-icon linkedin is-medium"
           href="https://www.linkedin.com/in/pablo-sanchez-camara-b143892b4/"
         ></a>
 
-        <h3>Fran</h3>
+        <hr />
+
+        
         <a
-          className="nes-icon github is-large"
+          className="nes-icon github is-medium"
           href="https://github.com/fraestgue"
         ></a>
         <a
-          className="nes-icon linkedin is-large"
+          className="nes-icon linkedin is-medium"
           href="https://www.linkedin.com/in/francisco-estepa-guerra-400417163/"
         ></a>
+         </div>
+        </div>
+        
       </div>
     </div>
   );

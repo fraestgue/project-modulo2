@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Pacman from "../componets/Pacman";
 
-
 function RetroPlatforms() {
   const params = useParams();
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ function RetroPlatforms() {
           params.platformId
         }`
       );
-       
+
       setAllRetroGames(response.data.results);
     } catch (error) {
       navigate("/errorpage");
@@ -37,7 +36,6 @@ function RetroPlatforms() {
   const volverAtras = () => {
     navigate(-1);
   };
- 
 
   return (
     <div>
@@ -49,15 +47,18 @@ function RetroPlatforms() {
         🔙
       </button>
       <hr />
-      <div>
-
-      </div>
+      <div></div>
       <hr />
       {allRetroGames.map((eachGame) => {
         return (
           <div key={eachGame.id}>
             <Link to={`/games/${eachGame.id}`} className="platforms">
-              <img src={eachGame.background_image} alt="game" width={"200px"} height={"120px"} />
+              <img
+                src={eachGame.background_image}
+                alt="game"
+                width={"200px"}
+                height={"120px"}
+              />
               <h3>{eachGame.name}</h3>
             </Link>
             <hr />

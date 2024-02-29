@@ -1,7 +1,10 @@
 import React from 'react'
 import Pacman from '../componets/Pacman'
+import { useNavigate } from 'react-router-dom'
 
 function Error404NotFundPage() {
+
+  const navigate = useNavigate()
 
   const volverAtras = () => {
     navigate("/")

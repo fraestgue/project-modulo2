@@ -9,7 +9,7 @@ function Footer() {
         </Link>
       </div>
       <div>
-        <a href="" className="amarillo">GitHub</a>
+        <a href="https://github.com/fraestgue/project-modulo2" className="amarillo">GitHub</a>
       </div>
     </div>
   )

@@ -5,18 +5,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function SalesForm(props) {
-  
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-  
   const [condition, setCondition] = useState();
   const [platform, setPlatform] = useState();
   const [price, setPrice] = useState(0);
 
-  const [seller, setSeller] = useState("")
+  const [seller, setSeller] = useState("");
 
-
-  
   const handleCondition = (event) => {
     setCondition(event.target.value);
   };
@@ -27,10 +23,8 @@ function SalesForm(props) {
     setPrice(event.target.value);
   };
   const handleSeller = (event) => {
-    setSeller(event.target.value)
-  }
-
-
+    setSeller(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,58 +36,80 @@ function SalesForm(props) {
       price: price,
       background_image: props.gameOnSale.background_image,
       gameApiId: props.gameOnSale.id,
-      seller: seller
+      seller: seller,
     };
 
-
     try {
+      await axios.post(`${JSON_URL}/sales`, nuevaVenta);
 
-      await axios.post(`${JSON_URL}/sales`, nuevaVenta)
-      
-      navigate("/sales")
-
-      
+      navigate("/sales");
     } catch (error) {
-      
-      navigate("/errorpage")
+      navigate("/errorpage");
     }
-
-    
   };
-
 
   return (
     <div className="nes-field">
-
       <form onSubmit={handleSubmit}>
-      <img src={props.gameOnSale.background_image} alt="juego" width={"180px"}/>
-      <h2>{props.gameOnSale.name}</h2>
-        
+        <img
+          src={props.gameOnSale.background_image}
+          alt="juego"
+          width={"180px"}
+        />
+        <h2>{props.gameOnSale.name}</h2>
+
         <label>Estado del juego: </label>
-        <select name="condition" onChange={handleCondition} value={condition} id="warning_field" className="nes-input is-warning">
+        <select
+          name="condition"
+          onChange={handleCondition}
+          value={condition}
+          id="warning_field"
+          className="nes-input is-warning"
+        >
           <option value=""> --ESTADO DEL JUEGO--</option>
           <option value="new">new</option>
           <option value="semi-new">semi-new</option>
         </select>
 
         <label>Precio: </label>
-        <input name="price" onChange={handlePrice} value={price} type="number" id="warning_field" className="nes-input is-warning">
-        </input>
+        <input
+          name="price"
+          onChange={handlePrice}
+          value={price}
+          type="number"
+          id="warning_field"
+          className="nes-input is-warning"
+        ></input>
 
         <label>Plataforma: </label>
-        <select name="platform" onChange={handlePlatform} id="warning_field" className="nes-input is-warning">
+        <select
+          name="platform"
+          onChange={handlePlatform}
+          id="warning_field"
+          className="nes-input is-warning"
+        >
           <option value=""> --PLATAFORMA--</option>
           {props.gameOnSale.platforms.map((eachElement) => {
-            return (<option key={eachElement.platform.id} value={eachElement.platform.name}>{eachElement.platform.name}</option>)
+            return (
+              <option
+                key={eachElement.platform.id}
+                value={eachElement.platform.name}
+              >
+                {eachElement.platform.name}
+              </option>
+            );
           })}
-         
         </select>
 
         <label>Vendedor: </label>
-        <input name="seller" onChange={handleSeller} value={seller} type="text" id="warning_field" className="nes-input is-warning">
-        </input>
-
-        
+        <input
+          name="seller"
+          onChange={handleSeller}
+          value={seller}
+          type="text"
+          id="warning_field"
+          className="nes-input is-warning"
+        ></input>
 
         <button className="nes-btn is-warning">Poner a la venta</button>
       </form>

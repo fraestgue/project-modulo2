@@ -5,10 +5,6 @@ import JSON_URL from "../utils/json";
 import { Link } from "react-router-dom";
 import Pacman from "../componets/Pacman";
 
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-
-
 import axios from "axios";
 
 function GameDetailsPage() {
@@ -17,7 +13,7 @@ function GameDetailsPage() {
 
   const [game, setGame] = useState(null);
   const [sales, setSales] = useState(null);
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     getGames();
@@ -28,8 +24,10 @@ function GameDetailsPage() {
       const response = await axios.get(
         `${API_URL}/games/${params.gameId}?key=${import.meta.env.VITE_KEY_API}`
       );
-      const responseJson = await axios.get(`${JSON_URL}/sales?gameApiId=${params.gameId}`);
-      console.log(responseJson.data);
+      const responseJson = await axios.get(
+        `${JSON_URL}/sales?gameApiId=${params.gameId}`
+      );
+
       setGame(response.data);
       setSales(responseJson.data);
     } catch (error) {
@@ -38,19 +36,15 @@ function GameDetailsPage() {
   };
 
   if (game === null) {
-    return <Pacman/>;
+    return <Pacman />;
   }
   if (sales === null) {
     return;
   }
 
-  // podemos hacer funcion fuera y pasarla o hacer la funcion anonima
-
   const volverAtras = () => {
     navigate(-1);
   };
-
-  console.log(sales);
 
   return (
     <div>
@@ -70,8 +64,15 @@ function GameDetailsPage() {
       />
 
       <div className="nes-container is-dark with-title">
-        <p className="title" onClick={() => {setOpen(!open)}}>{game.name} descripción 🔻</p>
-        {open && (<p>{game.description_raw}</p>)}
+        <p
+          className="title"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          {game.name} descripción 🔻
+        </p>
+        {open && <p>{game.description_raw}</p>}
       </div>
 
       <div className="lists">
@@ -88,24 +89,30 @@ function GameDetailsPage() {
         </ul>
       </div>
       <div>
-        {sales.length > 0 ? sales.map((eachSale) => {
-          return (
-          <div className="nes-container is-rounded is-dark card" key={eachSale.id}>
-            <Link to={`/sales/${eachSale.id}`} className={"platforms"}>
-          <h3>{eachSale.name}</h3>
-          <h3>Vendedor: {eachSale.seller}</h3>
-          <h5>{eachSale.price} €<span className="nes-icon coin is-small"></span></h5>
-          <h6>{eachSale.condition}</h6>
-          </Link>
+        {sales.length > 0 ? (
+          sales.map((eachSale) => {
+            return (
+              <div
+                className="nes-container is-rounded is-dark card"
+                key={eachSale.id}
+              >
+                <Link to={`/sales/${eachSale.id}`} className={"platforms"}>
+                  <h3>{eachSale.name}</h3>
+                  <h3>Vendedor: {eachSale.seller}</h3>
+                  <h5>
+                    {eachSale.price} €
+                    <span className="nes-icon coin is-small"></span>
+                  </h5>
+                  <h6>{eachSale.condition}</h6>
+                </Link>
+              </div>
+            );
+          })
+        ) : (
+          <div className="nes-container is-rounded is-dark">
+            <h5>{game.name} no esta aun a la venta</h5>
           </div>
-
-          )
-        }) : <div className="nes-container is-rounded is-dark" >
-          <h5>
-            {game.name} no esta aun a la venta
-          </h5>
-           </div>}
-  
+        )}
       </div>
     </div>
   );

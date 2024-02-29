@@ -62,8 +62,6 @@ function RetroPage() {
     navigate(-1);
   };
 
-  console.log(allRetroPlatforms);
-
   const retroPlatformsArr = [];
 
   allRetroPlatforms.forEach((eachPlatform) => {
@@ -82,10 +80,6 @@ function RetroPage() {
       retroPlatformsArr.push(eachPlatform);
     }
   });
-
-  console.log(retroPlatformsArr);
-
-  console.log(allRetroPlatforms);
 
   const idRetroArr = [];
   retroPlatformsArr.forEach((eachPlatform) => {

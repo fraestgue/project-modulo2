@@ -34,24 +34,28 @@ function Homepage() {
       );
 
       setAllPlatforms(response.data);
-      setMainGame(responseGames.data.results);
+      const shuffledGamesArr = shuffleArray(responseGames.data.results); 
+      setMainGame(shuffledGamesArr);
     } catch (error) {
       navigate("/errorpage");
     }
+  };
+
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
   };
 
   if (allPlatforms === null || mainGame === null) {
     return <Pacman />;
   }
 
-  
-
-  const indiceRandom = Math.floor(Math.random() * mainGame.length);
-
   const platformArr = allPlatforms.results.slice(0, 6);
-  const gameArr = mainGame.slice(indiceRandom, indiceRandom + 5);
-  // console.log(gameArr)
-
+  const gameArr = mainGame.slice(0, 5);
 
 
 

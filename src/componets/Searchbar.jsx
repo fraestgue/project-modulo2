@@ -27,11 +27,10 @@ function Searchbar(props) {
           }&search=${searchQuery}`
         );
 
-        console.log(response.data.results.slice(0, 5));
         setSearchGames(response.data.results.slice(0, 5));
         setSpinner(false);
       } catch (error) {
-        console.log(error);
+        navigate("/errorpage")
       }
     }, 1500);
 

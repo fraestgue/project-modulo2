@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import SearchSale from "../componets/SearchSale";
 
 import SalesForm from "../componets/SalesForm";
+import { useNavigate } from "react-router-dom";
 
 function NewSalesPage() {
+
+  const navigate = useNavigate()
   const [gameOnSale, setGameOnSale] = useState(null);
   const [searchGames, setSearchGames] = useState(null);
   const [isAddFormShowing, setIsAddFormShowing] = useState(false)
