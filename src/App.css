@@ -50,9 +50,31 @@ body{
   background-color: #f44855;
   color: #fcec84;
   justify-content: space-between;
-  padding: 20px 90px;
+  padding: 20px 70px;
 }
 
 .amarillo {
   color: #fcec84;
 }
+
+.pacman {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.spinner {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.barra {
+  display: block;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
+

@@ -15,7 +15,7 @@ function AboutPage() {
         <div className="nes-container is-dark with-title">
           <h2 className="title">GAMEHYPE</h2>
           <p>
-            GAMEHYPE es un proyecto llevado a cabo por Pablo Sánchez y Francisco
+            GAMEHYPE es un proyecto de módulo 2 en nuestra sexta semana de Bootcamp llevado a cabo por Pablo Sánchez y Francisco
             Estepa, estudiantes de webdevelopment en Ironhack. Es una App de
             videojuegos en la que podemos encontrar información de las
             principales plataformas, de las principales plataformas retro, y un

@@ -1,11 +1,11 @@
 import {CSSProperties} from 'react'
-import { PacmanLoader } from 'react-spinners'
+import Pacman from '../componets/Pacman'
 
 function ErrorPage() {
   return (
     <div>
-    <PacmanLoader color="#f44855" />
-    <div>ERROR AL CONECTAR CON EL SERVIDOR. VUELVE A INTENTARLO EN UNOS MINUTOS</div>
+    <Pacman />
+    <div className="nes-container is-rounded is-dark">ERROR AL CONECTAR CON EL SERVIDOR. VUELVE A INTENTARLO EN UNOS MINUTOS</div>
     </div>
   )
 }

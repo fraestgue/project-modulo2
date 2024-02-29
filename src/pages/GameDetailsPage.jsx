@@ -1,9 +1,12 @@
-import React, { useEffect, useState, CSSProperties } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import API_URL from "../utils/api";
 import JSON_URL from "../utils/json";
 import { Link } from "react-router-dom";
-import { PacmanLoader } from "react-spinners";
+import Pacman from "../componets/Pacman";
+
+import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 
 import axios from "axios";
@@ -35,7 +38,7 @@ function GameDetailsPage() {
   };
 
   if (game === null) {
-    return <PacmanLoader color="#f44855" />;
+    return <Pacman/>;
   }
   if (sales === null) {
     return;
@@ -47,7 +50,7 @@ function GameDetailsPage() {
     navigate(-1);
   };
 
-  console.log(params.gameId);
+  console.log(sales);
 
   return (
     <div>
@@ -85,18 +88,24 @@ function GameDetailsPage() {
         </ul>
       </div>
       <div>
-        {sales && sales.map((eachSale) => {
+        {sales.length > 0 ? sales.map((eachSale) => {
           return (
-          <div className="nes-container is-rounded is-dark" key={eachSale.id}>
+          <div className="nes-container is-rounded is-dark card" key={eachSale.id}>
             <Link to={`/sales/${eachSale.id}`} className={"platforms"}>
           <h3>{eachSale.name}</h3>
-          <h3>{eachSale.seller}</h3>
-          <h3>{eachSale.price}</h3>
+          <h3>Vendedor: {eachSale.seller}</h3>
+          <h5>{eachSale.price} €<span className="nes-icon coin is-small"></span></h5>
+          <h6>{eachSale.condition}</h6>
           </Link>
           </div>
 
           )
-        })}
+        }) : <div className="nes-container is-rounded is-dark" >
+          <h5>
+            {game.name} no esta aun a la venta
+          </h5>
+           </div>}
+  
       </div>
     </div>
   );

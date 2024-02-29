@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState, CSSProperties } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import JSON_URL from "../utils/json";
 import EditarVenta from "../componets/EditarVenta";
 import API_URL from "../utils/api";
-import { PacmanLoader } from "react-spinners";
+import Pacman from "../componets/Pacman";
 
 
 function DetallesVenta() {
@@ -46,7 +46,7 @@ function DetallesVenta() {
   };
 
   if (salesDetails === null || dataGameApi === null) {
-    return <PacmanLoader color="#f44855" />;
+    return <Pacman />;
   }
 
   const handleRemoveSale = async () => {
@@ -79,7 +79,7 @@ function DetallesVenta() {
       <div className="lists">
         <ul className="nes-list is-circle nes-container is-rounded is-dark">
       <li>Estado: {salesDetails.condition}</li>
-      <li>Precio: {salesDetails.price} €</li>
+      <li>Precio: {salesDetails.price} €<span className="nes-icon coin is-small"></span></li>
       <li>Plataform: {salesDetails.platform}</li>
       <li>Vendedor: {salesDetails.seller}</li>
       </ul>

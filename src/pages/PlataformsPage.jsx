@@ -1,9 +1,9 @@
 import axios from 'axios'
-import React, { useEffect, useState,CSSProperties } from 'react'
+import React, { useEffect, useState } from 'react'
 import API_URL from '../utils/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { PacmanLoader } from 'react-spinners'
+import Pacman from '../componets/Pacman'
 
 function PlataformsPage() {
 
@@ -29,7 +29,7 @@ function PlataformsPage() {
   }
 
   if(allGames === null) {
-    return <PacmanLoader color="#f44855" />
+    return <Pacman />
   }
 
   const games = allGames.results

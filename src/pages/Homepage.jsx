@@ -1,4 +1,4 @@
-import React, { useEffect, useState,CSSProperties } from "react";
+import React, { useEffect, useState } from "react";
 import API_URL from "../utils/api";
 import Carousel from "react-bootstrap/Carousel";
 import axios from "axios";
@@ -11,7 +11,8 @@ import xboxone from "../assets/xboxone-logo.png"
 import xboxsx from "../assets/xboxsx-logo.png"
 import nints from "../assets/switch-logo.png"
 import retro from "../assets/retro.png"
-import { PacmanLoader } from "react-spinners";
+
+import Pacman from "../componets/Pacman";
 
 function Homepage() {
   const [allPlatforms, setAllPlatforms] = useState(null);
@@ -40,7 +41,7 @@ function Homepage() {
   };
 
   if (allPlatforms === null || mainGame === null) {
-    return <PacmanLoader color="#f44855" />;
+    return <Pacman />;
   }
 
   
@@ -106,11 +107,7 @@ function Homepage() {
         <hr />
       </Link>
 
-      <Link to={"/sales"} className="platforms">
-        <h3>Juegos en venta</h3>
-
-        <hr />
-      </Link>
+    
     </div>
   );
 }

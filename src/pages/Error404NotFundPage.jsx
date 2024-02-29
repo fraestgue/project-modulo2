@@ -1,4 +1,5 @@
 import React from 'react'
+import Pacman from '../componets/Pacman'
 
 function Error404NotFundPage() {
 
@@ -7,8 +8,9 @@ function Error404NotFundPage() {
   }
   return (
     <div>
-      <h1>VAYA! PARECE QUE TE HAS PERDIDO. VUELVE AL INICIO</h1>
-      <button onClick={volverAtras}>
+      <Pacman />
+      <h1 className="nes-container is-rounded is-dark">VAYA! PARECE QUE TE HAS PERDIDO. VUELVE AL INICIO</h1>
+      <button onClick={volverAtras} type="button" className="nes-btn is-warning">
         vuelve al inicio
       </button>
 
