@@ -11,12 +11,12 @@ Estepa, estudiantes de webdevelopment en Ironhack. Es una App de
 videojuegos en la que podemos encontrar información de las
 principales plataformas, de las principales plataformas retro, y un
 apartado de venta de juegos. Para obtener la información que
-arrojamos en pantalla hemos usado una{" "}
+arrojamos en pantalla hemos usado una
 <a href="https://rawg.io/apidocs">API</a> externa y JSON_server
 local. Toda la App ha sido desarrollada con herramientas de React,
-JavaScript, CSS y las bibliotecas de estilos{" "}
-<a href="https://nostalgic-css.github.io/NES.css/#">Ness</a>,{" "}
-<a href="https://react-bootstrap.netlify.app/">Bootstrap</a> y{" "}
+JavaScript, CSS y las bibliotecas de estilos
+<a href="https://nostalgic-css.github.io/NES.css/#">Ness</a>,
+<a href="https://react-bootstrap.netlify.app/">Bootstrap</a> y
 <a href="https://www.davidhu.io/react-spinners/">
 REACT SPINNERS by David Hu
 
@@ -34,13 +34,15 @@ REACT SPINNERS by David Hu
 - axios
 
 - Librerias:
-    - ## [NES.css] (https://nostalgic-css.github.io/NES.css/#)
-    - ## [Bootstrap] (https://react-bootstrap.netlify.app/)
-    - ## [REACT SPINNERS by David Hu] (https://www.davidhu.io/react-spinners/)
+    - #### [NES.css] (https://nostalgic-css.github.io/NES.css/#)
+    - #### [Bootstrap] (https://react-bootstrap.netlify.app/)
+    - #### [REACT SPINNERS by David Hu] (https://www.davidhu.io/react-spinners/)
 
 ## Backlog Functionalities
 
-**NOTE -** List here all functionalities you wish to add to your proyect later or you are currently working on
+- Posibilidad de añadir un boton de compra en el que se resten las cantidades disponibles y se añada a una cesta.
+- Añadir cartas específicas en los juegos que tengan ventas disponibles.
+- Añadir usuario y log in para hacer la compra/venta.
 
 # Client Structure
 
@@ -48,14 +50,15 @@ REACT SPINNERS by David Hu
 
 **NOTE -** List here all the actions a user can do in the app. Example:
 
-- **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
-- **500** - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault
-- **homepage** - As a user I want to be able to access the homepage so that I see what the app is about and login and signup
-- **sign up** - As a user I want to sign up on the webpage so that I can see all the events that I could attend
-- **login** - As a user I want to be able to log in on the webpage so that I can get back to my account
-- **logout** - As a user I want to be able to log out from the webpage so that I can make sure no one will access my account
-- **events list** - As a user I want to see all the events available so that I can choose which ones I want to attend
-- **events create** - As a user I want to create an event so that I can invite others to attend
+- **404** - Cuando el usuario va a una página que no existe ve que no puede seguir navegando y se le da la opción de volver atrás
+- **500** - Cuando algo falla debido a problemas internos igualmente se le informa que puede volver a intentarlo en un corto período de tiempo
+- **homepage** - En la página principal el usuario puede ver las opciones disponibles en la web. Desde buscar todos lo juegos disponibles por nombre, entrar a cada plataforma, plataforma retro o la sección de juegos en venta. También se aprecia un carousel donde de forma aleatoria te muestra cinco juegos, y podemos ir a sus detalles.
+- **events list** - 
+    - Searchbar: Podemos buscar entre todos los juegos disponibles en la web, haciendo un filtrado por nombre. Mientras busca y nos da los rsultados nos muestra un spinner
+    - Navbar: Tenemos un dropdown donde de forma rápida podemos acceder a las tres secciones principales de la web
+    - Salesform: Podemos poner un juego a la venta, dandole su estado, precio, nombre de vendedor, entre los juegos que hay disponibles en la web.
+    - EditarVenta: Dentro de cada juego en venta, podremos editar sus valores, a la vez que eliminarlo.
+    - GameDetailsPage: Dentro de los detalles del juego, tenemos la opción de abrir el collapse para ver la descripción del juego. Al final podremos ver si hay ventas disponibles de ese juego, o si por el contrario no las hubiera.
 
 ## Client Routes
 
@@ -81,23 +84,26 @@ REACT SPINNERS by David Hu
 ## Links
 
 ### Collaborators
+- Fran Estepa
+[Github](https://github.com/fraestgue)
+[Linkedin](https://www.linkedin.com/in/francisco-estepa-guerra-400417163/)
 
-[Developer 1 name](www.github-url.com)
-
-[Developer 2 name](www.github-url.com)
+-Pablo Sanchez
+[Github](https://github.com/PabloSanchezCamara)
+[Linkedin](https://www.linkedin.com/in/pablo-sanchez-camara-b143892b4/)
 
 ### Project
 
-[Repository Link Client](www.your-github-url-here.com)
+[Repository Link Client](https://github.com/fraestgue/project-modulo2)
 
-[Repository Link Server](www.your-github-url-here.com)
+[Repository Link Server](https://github.com/fraestgue/modulo2server/blob/main/server.js)
 
-[Deploy Link](www.your-deploy-url-here.com)
+[Deploy Link](https://game-hype.netlify.app/)
 
-### Trello
+### Excalidraw
 
-[Link to your trello board](www.your-trello-url-here.com)
+[Link](https://excalidraw.com/#json=DUK8iYyh_iC9USCW0xwNu,F2yriPEAfDA5N5nRXMxIqg)
 
 ### Slides
 
-[Slides Link](www.your-slides-url-here.com)
+[Slides Link](https://docs.google.com/presentation/d/1YvOv6LuQWPMx6dTJjLq3FJRZkD_5auRBuORS2cd7pPc/edit#slide=id.g2be6dd33bb5_0_29)
