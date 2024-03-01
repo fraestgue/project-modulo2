@@ -14,6 +14,7 @@ function JuegosEnVenta() {
   }, []);
 
   const getGameSales = async () => {
+    setGameSales(null)
     try {
       const response = await axios.get(`${JSON_URL}/sales`);
       setGameSales(response.data);

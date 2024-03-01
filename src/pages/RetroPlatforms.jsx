@@ -16,6 +16,7 @@ function RetroPlatforms() {
   }, []);
 
   const getData = async () => {
+    setAllRetroGames(null)
     try {
       const response = await axios.get(
         `${API_URL}/games?key=${import.meta.env.VITE_KEY_API}&platforms=${

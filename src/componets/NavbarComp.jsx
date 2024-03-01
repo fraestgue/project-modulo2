@@ -12,7 +12,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-
 function NavbarComp() {
   const [allPlatforms, setAllPlatforms] = useState(null);
   const [mainGame, setMainGame] = useState(null);
@@ -79,14 +78,13 @@ function NavbarComp() {
         <Searchbar />
       </div>
 
-      <Navbar variant="dark" bg="dark" expand="lg">
+      <Navbar variant="dark" bg="dark" expand="lg" collapseOnSelect>
         <Container fluid>
-          <Link to={"/"}>
-            <Navbar.Brand href="#home">
-              {" "}
-              <span className="icon-list snes-jp-logo gamhype"></span> GAMEHYPE
-            </Navbar.Brand>
-          </Link>
+          <Navbar.Brand as={Link} href="#home" to={"/"}>
+            {" "}
+            <span className="icon-list snes-jp-logo gamhype"></span> GAMEHYPE
+          </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="navbar-dark-example" />
           <Navbar.Collapse id="navbar-dark-example">
             <Nav>
@@ -97,14 +95,14 @@ function NavbarComp() {
               >
                 {platform.map((eachPlatform) => {
                   return (
-                    <Link
+                    <NavDropdown.Item
+                      as={Link}
+                      href="#action/3.1"
                       to={`/platforms/${eachPlatform.id}`}
                       key={eachPlatform.id}
                     >
-                      <NavDropdown.Item href="#action/3.1">
-                        {eachPlatform.name}
-                      </NavDropdown.Item>
-                    </Link>
+                      {eachPlatform.name}
+                    </NavDropdown.Item>
                   );
                 })}
               </NavDropdown>
@@ -116,14 +114,14 @@ function NavbarComp() {
               >
                 {retroPlatformsArr.map((eachPlatform) => {
                   return (
-                    <Link
+                    <NavDropdown.Item
+                      as={Link}
+                      href="#action/3.1"
                       to={`/platforms/${eachPlatform.id}`}
                       key={eachPlatform.id}
                     >
-                      <NavDropdown.Item href="#action/3.1">
-                        {eachPlatform.name}
-                      </NavDropdown.Item>
-                    </Link>
+                      {eachPlatform.name}
+                    </NavDropdown.Item>
                   );
                 })}
               </NavDropdown>
@@ -133,11 +131,9 @@ function NavbarComp() {
                 title="Venta de juegos"
                 menuVariant="dark"
               >
-                <Link to={"/sales"}>
-                  <NavDropdown.Item href="#action/3.1">
-                    Ver juegos en venta
-                  </NavDropdown.Item>
-                </Link>
+                <NavDropdown.Item as={Link} href="#action/3.1" to={"/sales"}>
+                  Ver juegos en venta
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
