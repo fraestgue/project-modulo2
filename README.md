@@ -26,17 +26,17 @@ REACT SPINNERS by David Hu
 
 ## Technologies, Libraries & APIs used
 
-**NOTE -** List here all technologies used in the project like HTML, CSS, Javascript, React, axios, Bootstrap, etc.
+**Tecnologías usadas: -** 
 - HTML
 - JavaScript
 - CSS
 - React
 - axios
 
-- Librerias:
-    - #### [NES.css] (https://nostalgic-css.github.io/NES.css/#)
-    - #### [Bootstrap] (https://react-bootstrap.netlify.app/)
-    - #### [REACT SPINNERS by David Hu] (https://www.davidhu.io/react-spinners/)
+## Librerias:
+#### [NES.css] (https://nostalgic-css.github.io/NES.css/#)
+#### [Bootstrap] (https://react-bootstrap.netlify.app/)
+#### [REACT SPINNERS by David Hu] (https://www.davidhu.io/react-spinners/)
 
 ## Backlog Functionalities
 
@@ -48,7 +48,7 @@ REACT SPINNERS by David Hu
 
 ## User Stories
 
-**NOTE -** List here all the actions a user can do in the app. Example:
+
 
 - **404** - Cuando el usuario va a una página que no existe ve que no puede seguir navegando y se le da la opción de volver atrás
 - **500** - Cuando algo falla debido a problemas internos igualmente se le informa que puede volver a intentarlo en un corto período de tiempo
@@ -66,20 +66,34 @@ REACT SPINNERS by David Hu
 
 ## React Router Routes (React App)
 
-| Path                | Page          | Components        | Behavior                                                      |
-| ------------------- | ------------- | ----------------- | ------------------------------------------------------------- |
-| `/`                 | Home          |                   | Home page                                                     |
-| `/signup`           | Signup        |                   | Signup form, link to login, navigate to homepage after signup |
-| `/login`            | Login         |                   | Login form, link to signup, navigate to homepage after login  |
-| `/profile`          | Profile       | EditProfile       | Navigate to homepage after logout, expire session             |
-| `/games/list`       | GameList      | AddGame, GameCard | Shows all films on backlog                                    |
-| `/games/edit`       | GamesEdit     |                   | Shows all games on backlog                                    |
-| `/games/favourites` | FavouriteList | GameCard          | Shows all games on backlog                                    |
+| Path                      | Page            | Components              | Behavior                                   |
+| ------------------------- | ----------------| ----------------------  |  ----------------------------------------- |
+| `/`                       | Home            |                         | Home page                                  |
+| `/platforms/:platformId`  | PlatformsPage   |                         | Juegos por plataforma                      |
+| `/games/:gameId`          | GameDetailsPage |                         | Detalles del juego                         |
+| `/sales`                  | JuegosEnVenta   |                         | Juegos en venta                            |
+| `/sales/:salesId`         | DetallesVenta   | EditarVenta             | Detalles de la venta                       |
+| `/sales/form`             | NewSalesPage    | SearchSale, SalesForm   | Formulario para crear venta                |
+| `/retro`                  | RetroPage       |                         | Plataformas Retro                          |
+| `/retro/:platformId`      | RetroPlatforms  |                         | Juegos por plataforma Retro                |
+| `/about`                  | AboutPage       |                         | Información sobre el proyecto y creadores  |
+| `/errorpage`              | ErrorPage       |                         | Cuando falla la llamada al servidor        |
+| `*`                       | Error404NotFund |                         | Dirección inexistente                      |
+
+
+
+
+
+ 
+ 
+
 
 ## Other Components
 
-- Navbar
+- NavbarComp
 - Footer
+- Pacman
+- Searchbar
 
 ## Links
 
@@ -88,7 +102,7 @@ REACT SPINNERS by David Hu
 [Github](https://github.com/fraestgue)
 [Linkedin](https://www.linkedin.com/in/francisco-estepa-guerra-400417163/)
 
--Pablo Sanchez
+- Pablo Sánchez
 [Github](https://github.com/PabloSanchezCamara)
 [Linkedin](https://www.linkedin.com/in/pablo-sanchez-camara-b143892b4/)
 
